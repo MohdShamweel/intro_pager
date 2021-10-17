@@ -1,21 +1,15 @@
-package com.shamweel.trimaplus.ui.splashintro
+package com.shamweel.trimaplus.ui.extensions
 
-import android.R
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.view.View
-import android.view.Window
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.snackbar.Snackbar
 import com.shamweel.trimaplus.data.network.Resource
-import androidx.annotation.NonNull
-
-import androidx.viewpager.widget.ViewPager
-
-
-
+import java.util.*
 
 
 fun View.visible(isVisible: Boolean) {
@@ -60,4 +54,20 @@ fun Activity.fullscreen() {
 
 fun Activity.exitFullscreen() {
     WindowInsetsControllerCompat(window, window.decorView).show(WindowInsetsCompat.Type.systemBars())
+}
+
+fun <A : Activity> Activity.startNewActivity(activity: Class<A>) {
+    Intent(this, activity).also {
+        it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(it)
+    }
+}
+
+fun Context.setAppLocale(language: String): Context {
+    val locale = Locale(language)
+    Locale.setDefault(locale)
+    val config = resources.configuration
+    config.setLocale(locale)
+    config.setLayoutDirection(locale)
+    return createConfigurationContext(config)
 }
