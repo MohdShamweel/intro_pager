@@ -1,4 +1,4 @@
-package com.shamweel.trimaplus.ui.extensions
+package com.shamweel.trimaplus.ui.splashintro.utils
 
 import android.app.Activity
 import android.content.Context
@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.snackbar.Snackbar
+import com.shamweel.trimaplus.R
 import com.shamweel.trimaplus.data.network.Resource
 import com.shamweel.trimaplus.data.responses.Data
 import com.shamweel.trimaplus.databinding.LayoutIntroBinding
@@ -27,7 +28,7 @@ fun View.visible(isVisible: Boolean) {
 fun View.snackbar(message: String, action: (() -> Unit?)? = null) {
     val snackbar = Snackbar.make(this, message, Snackbar.LENGTH_LONG)
     action?.let {
-        snackbar.setAction("Retry") {
+        snackbar.setAction(context.getString(R.string.string_retry)) {
             it()
         }
     }
@@ -42,7 +43,7 @@ fun Fragment.handleAPIError(
     when {
         failure.isNetworkError ->
             requireView().snackbar(
-                "Please check your Internet Connection",
+                getString(R.string.no_internet),
                 retry
             )
 
@@ -78,6 +79,10 @@ fun LayoutIntroBinding.setViews(data: Data) {
     animationView.addLottieOnCompositionLoadedListener {
         progressbar.visible(false)
     }
+}
+
+fun LayoutIntroBinding.setNoInternet(){
+    animationView.setAnimation("no_internet.json")
 }
 
 fun Context.setAppLocale(language: String): Context {
