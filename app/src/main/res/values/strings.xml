@@ -3,4 +3,6 @@
     <string name="text_register">Register</string>
     <string name="text_enter">Enter</string>
     <string name="logout">Logout</string>
+    <string name="no_internet">Please check your Internet Connection</string>
+    <string name="string_retry">Retry</string>
 </resources>

@@ -4,4 +4,6 @@
     <string name="text_enter">Masuk</string>
     <string name="text_register">Registrasi</string>
     <string name="logout">keluar</string>
+    <string name="no_internet">Silakan periksa Koneksi Internet Anda</string>
+    <string name="string_retry">Mencoba kembali</string>
 </resources>

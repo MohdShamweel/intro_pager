@@ -1,30 +1,24 @@
 package com.shamweel.trimaplus.ui.splashintro.activity
 
-import android.content.Context
-import android.content.ContextWrapper
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import com.shamweel.trimaplus.R
 import com.shamweel.trimaplus.data.AppDataStore
 import com.shamweel.trimaplus.databinding.ActivitySplashIntroBinding
-import com.shamweel.trimaplus.ui.extensions.getAdapterLocally
-import com.shamweel.trimaplus.ui.extensions.setAppLocale
-import com.shamweel.trimaplus.ui.extensions.startNewActivity
+import com.shamweel.trimaplus.ui.splashintro.utils.getAdapterLocally
+import com.shamweel.trimaplus.ui.splashintro.utils.startNewActivity
 import com.shamweel.trimaplus.ui.home.HomeActivity
-import com.shamweel.trimaplus.ui.splashintro.fragment.IntroFirstFragment
-import com.shamweel.trimaplus.ui.splashintro.fragment.IntroFourthFragment
-import com.shamweel.trimaplus.ui.splashintro.fragment.IntroSecondFragment
-import com.shamweel.trimaplus.ui.splashintro.fragment.IntroThirdFragment
 import com.shamweel.trimaplus.ui.splashintro.view.FadeOutTransformer
 import com.shamweel.trimaplus.ui.splashintro.adapter.*
-import kotlinx.coroutines.flow.first
+import com.shamweel.trimaplus.ui.splashintro.utils.NetworkUtils
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class SplashIntroActivity : AppCompatActivity() {
 
 
@@ -62,6 +56,10 @@ class SplashIntroActivity : AppCompatActivity() {
     }
 
     private fun launchHomeActivity() {
+        if (!NetworkUtils.isNetworkConnected(this)){
+            Toast.makeText(this, R.string.no_internet, Toast.LENGTH_SHORT).show()
+            return
+        }
         lifecycleScope.launch { appDataStore.setLogin(true) }
         startNewActivity(HomeActivity::class.java)
     }

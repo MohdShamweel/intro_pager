@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.shamweel.trimaplus.data.AppDataStore
 import com.shamweel.trimaplus.databinding.ActivityHomeBinding
-import com.shamweel.trimaplus.ui.extensions.startNewActivity
+import com.shamweel.trimaplus.ui.splashintro.utils.startNewActivity
 import com.shamweel.trimaplus.ui.splashintro.activity.SplashIntroActivity
 import kotlinx.coroutines.launch
 

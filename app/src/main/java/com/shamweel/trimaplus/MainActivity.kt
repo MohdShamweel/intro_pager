@@ -7,10 +7,9 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import com.shamweel.trimaplus.data.AppDataStore
-import com.shamweel.trimaplus.databinding.ActivityHomeBinding
 import com.shamweel.trimaplus.databinding.ActivityMainBinding
-import com.shamweel.trimaplus.ui.extensions.setAppLocale
-import com.shamweel.trimaplus.ui.extensions.startNewActivity
+import com.shamweel.trimaplus.ui.splashintro.utils.setAppLocale
+import com.shamweel.trimaplus.ui.splashintro.utils.startNewActivity
 import com.shamweel.trimaplus.ui.home.HomeActivity
 import com.shamweel.trimaplus.ui.splashintro.activity.SplashIntroActivity
 

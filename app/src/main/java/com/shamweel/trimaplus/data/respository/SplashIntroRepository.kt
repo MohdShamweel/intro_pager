@@ -2,8 +2,9 @@ package com.shamweel.trimaplus.data.respository
 
 import com.shamweel.trimaplus.data.network.ApiInterface
 import com.shamweel.trimaplus.data.network.SafeApiCall
+import javax.inject.Inject
 
-class SplashIntroRepository(
+class SplashIntroRepository @Inject constructor(
     private val api: ApiInterface
 ): SafeApiCall {
 

@@ -6,9 +6,12 @@ import androidx.lifecycle.viewModelScope
 import com.shamweel.trimaplus.data.network.Resource
 import com.shamweel.trimaplus.data.responses.IntroResponse
 import com.shamweel.trimaplus.data.respository.SplashIntroRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class IntroFirstViewModel(
+@HiltViewModel
+class IntroFirstViewModel @Inject constructor(
     private val repository : SplashIntroRepository
 ): BaseViewModel(repository) {
 
