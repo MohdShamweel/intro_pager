@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trima Plus</string>
+    <string name="text_enter">Masuk</string>
+    <string name="text_register">Registrasi</string>
+    <string name="logout">keluar</string>
+</resources>

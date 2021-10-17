@@ -17,10 +17,10 @@ class IntroFourthViewModel(
         get() = _response
 
     fun getIntroData(
-        page_id : String
+        url : String
     ) = viewModelScope.launch {
         _response.value = Resource.Loading
-        _response.value = repository.getIntroData(page_id)
+        _response.value = repository.getIntroData(url)
     }
 
 }

@@ -8,9 +8,9 @@ class SplashIntroRepository(
 ): SafeApiCall {
 
     suspend fun getIntroData(
-        page_id : String
+        url : String
     ) = safeApiCall {
-        api.getSplashIntroById(page_id)
+        api.getSplashIntroById(url)
     }
 
 }

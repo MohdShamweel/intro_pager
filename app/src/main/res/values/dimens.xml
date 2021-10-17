@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSize_18sp">18sp</dimen>
+    <dimen name="textSize_16sp">16sp</dimen>
+    <dimen name="dimen_12dp">12dp</dimen>
+    <dimen name="radius_8dp">8dp</dimen>
+    <dimen name="dot_size">5dp</dimen>
+    <dimen name="dot_spacing">4dp</dimen>
+</resources>

@@ -7,8 +7,16 @@ import android.view.View
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.snackbar.Snackbar
 import com.shamweel.trimaplus.data.network.Resource
+import com.shamweel.trimaplus.data.responses.Data
+import com.shamweel.trimaplus.databinding.LayoutIntroBinding
+import com.shamweel.trimaplus.ui.splashintro.adapter.ScreenSlidePagerAdapter
+import com.shamweel.trimaplus.ui.splashintro.fragment.IntroFirstFragment
+import com.shamweel.trimaplus.ui.splashintro.fragment.IntroFourthFragment
+import com.shamweel.trimaplus.ui.splashintro.fragment.IntroSecondFragment
+import com.shamweel.trimaplus.ui.splashintro.fragment.IntroThirdFragment
 import java.util.*
 
 
@@ -63,6 +71,15 @@ fun <A : Activity> Activity.startNewActivity(activity: Class<A>) {
     }
 }
 
+fun LayoutIntroBinding.setViews(data: Data) {
+    txtTitle.text = data.title
+    txtDesc.text = data.desc
+    animationView.setAnimationFromUrl(data.pic)
+    animationView.addLottieOnCompositionLoadedListener {
+        progressbar.visible(false)
+    }
+}
+
 fun Context.setAppLocale(language: String): Context {
     val locale = Locale(language)
     Locale.setDefault(locale)
@@ -70,4 +87,13 @@ fun Context.setAppLocale(language: String): Context {
     config.setLocale(locale)
     config.setLayoutDirection(locale)
     return createConfigurationContext(config)
+}
+
+fun ViewPager2.getAdapterLocally(adapter: ScreenSlidePagerAdapter, context: Context): ScreenSlidePagerAdapter {
+    adapter.addFragment(IntroFirstFragment())
+    adapter.addFragment(IntroSecondFragment())
+    adapter.addFragment(IntroThirdFragment())
+    adapter.addFragment(IntroFourthFragment())
+    return adapter
+
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="GET_INTRO_PAGE_1" translatable="false">intros/pg_1</string>
+    <string name="GET_INTRO_PAGE_2" translatable="false">intros/pg_2</string>
+    <string name="GET_INTRO_PAGE_3" translatable="false">intros/pg_3</string>
+    <string name="GET_INTRO_PAGE_4" translatable="false">intros/pg_4</string>
+</resources>
