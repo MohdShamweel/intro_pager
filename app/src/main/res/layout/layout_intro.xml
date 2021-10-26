@@ -1,63 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
 
-    <ProgressBar
-        android:id="@+id/progressbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminateTint="@color/orange"
-        app:layout_constraintBottom_toBottomOf="@+id/animationView"
-        app:layout_constraintEnd_toEndOf="@+id/animationView"
-        app:layout_constraintStart_toStartOf="@+id/animationView"
-        app:layout_constraintTop_toTopOf="@+id/animationView" />
+    <data>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationView"
+        <variable
+            name="viewModel"
+            type="com.shamweel.trimaplus.ui.splashintro.viewmodel.IntroFirstViewModel" />
+
+        <variable
+            name="viewState"
+            type="com.shamweel.trimaplus.ui.splashintro.viewstate.IntroViewState" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtTitle"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
-        android:gravity="center"
-        android:textColor="@color/blue"
-        android:textSize="@dimen/textSize_18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtDesc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Welcome to the world of knowledge" />
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/orange"
+            android:visibility="@{viewState.progressVisibility}"
+            app:layout_constraintBottom_toBottomOf="@+id/animationView"
+            app:layout_constraintEnd_toEndOf="@+id/animationView"
+            app:layout_constraintStart_toStartOf="@+id/animationView"
+            app:layout_constraintTop_toTopOf="@+id/animationView" />
 
-    <TextView
-        android:id="@+id/txtDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        tools:text="We will help you gain knowledge that will change your life. Participate in the quiz and get a discount on training"
-        android:textColor="@color/dark90"
-        android:textSize="@dimen/textSize_16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:animationUrl="@{viewState.animUrl}"
+            app:layout_constraintBottom_toTopOf="@+id/txtTitle"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:text="@{viewState.title}"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/textSize_18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Welcome to the world of knowledge" />
+
+        <TextView
+            android:id="@+id/txtDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@{viewState.desc}"
+            android:textColor="@color/dark90"
+            android:textSize="@dimen/textSize_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="We will help you gain knowledge that will change your life. Participate in the quiz and get a discount on training" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

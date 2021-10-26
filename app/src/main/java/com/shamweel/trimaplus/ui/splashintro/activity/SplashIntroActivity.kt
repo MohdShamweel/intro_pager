@@ -45,7 +45,7 @@ class SplashIntroActivity : AppCompatActivity() {
         }
 
         binding.dotsIndicator.setViewPager2(binding.viewpager)
-        autoScrollViewPager()
+        //autoScrollViewPager()
 
         binding.btnLogin.setOnClickListener {
             launchHomeActivity()

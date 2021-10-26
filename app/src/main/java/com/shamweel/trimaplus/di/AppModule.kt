@@ -20,4 +20,5 @@ object AppModule {
     ) : ApiInterface {
         return remoteDataSource.buildApi(ApiInterface::class.java, context)
     }
+
 }
