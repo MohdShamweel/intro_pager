@@ -5,6 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -17,6 +18,7 @@ class AppDataStore(
 
     companion object {
         private val APP_LOGIN_SUCCESS = booleanPreferencesKey("key_app_login_success")
+        private val APP_SELECTED_LANG = stringPreferencesKey("key_app_selected_lang")
     }
 
     private val applicationContext = context.applicationContext
@@ -24,6 +26,11 @@ class AppDataStore(
     val userLoggedIn: Flow<Boolean?>
     get() = applicationContext.dataStore.data.map { preference ->
         preference[APP_LOGIN_SUCCESS] ?: false
+    }
+
+    val selectedLang: Flow<String?>
+    get() = applicationContext.dataStore.data.map { preference ->
+        preference[APP_SELECTED_LANG] ?: "bh"
     }
 
     suspend fun setLogin(login: Boolean){

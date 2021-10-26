@@ -3,13 +3,20 @@ package com.shamweel.trimaplus.ui.splashintro.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
+import android.content.res.Resources
+import android.os.Build
+import android.os.LocaleList
 import android.view.View
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.snackbar.Snackbar
 import com.shamweel.trimaplus.R
+import com.shamweel.trimaplus.data.AppDataStore
 import com.shamweel.trimaplus.data.network.Resource
 import com.shamweel.trimaplus.data.responses.Data
 import com.shamweel.trimaplus.databinding.LayoutIntroBinding
@@ -54,6 +61,17 @@ fun Fragment.handleAPIError(
     }
 }
 
+fun Fragment.getNativeString(stringId: Int): String {
+    val configuration = Configuration(resources.configuration)
+    val defaultLocale = Locale(AppDataStore(requireContext()).selectedLang.toString())
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        val localeList = LocaleList(defaultLocale)
+        configuration.setLocales(localeList)
+        requireContext().createConfigurationContext(configuration).getString(stringId)
+    }
+    return requireContext().getString(stringId)
+}
+
 fun Activity.fullscreen() {
     with(WindowInsetsControllerCompat(window, window.decorView)) {
         systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE
@@ -78,6 +96,13 @@ fun LayoutIntroBinding.setViews(data: Data) {
     animationView.setAnimationFromUrl(data.pic)
     animationView.addLottieOnCompositionLoadedListener {
         progressbar.visible(false)
+    }
+}
+
+@BindingAdapter("animationUrl")
+fun LottieAnimationView.setAnimationUrl(url:String?){
+    if(url?.isNotEmpty() == true) {
+        setAnimationFromUrl(url)
     }
 }
 

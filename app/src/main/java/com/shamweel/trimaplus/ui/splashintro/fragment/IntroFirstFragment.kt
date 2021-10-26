@@ -1,16 +1,15 @@
 package com.shamweel.trimaplus.ui.splashintro.fragment
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.shamweel.trimaplus.R
 import com.shamweel.trimaplus.data.network.Resource
 import com.shamweel.trimaplus.databinding.FragmentIntroContainerBinding
-import com.shamweel.trimaplus.ui.splashintro.utils.handleAPIError
-import com.shamweel.trimaplus.ui.splashintro.utils.setNoInternet
-import com.shamweel.trimaplus.ui.splashintro.utils.setViews
-import com.shamweel.trimaplus.ui.splashintro.utils.visible
+import com.shamweel.trimaplus.ui.splashintro.utils.*
 import com.shamweel.trimaplus.ui.splashintro.viewmodel.IntroFirstViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,12 +18,21 @@ import dagger.hilt.android.AndroidEntryPoint
 class IntroFirstFragment : Fragment(R.layout.fragment_intro_container) {
 
     private lateinit var binding: FragmentIntroContainerBinding
-    private val viewModel: IntroFirstViewModel by viewModels()
+    private val vm: IntroFirstViewModel by viewModels()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = FragmentIntroContainerBinding.inflate(inflater, container, false)
+        binding.apply {
+            viewModel = vm
+            viewState = vm.viewState
+        }
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentIntroContainerBinding.bind(view)
-        binding.layoutIntro.progressbar.visible(false)
+        getData()
+        /*binding.layoutIntro.progressbar.visible(false)
 
         getData()
         viewModel.response.observe(viewLifecycleOwner, {
@@ -40,12 +48,12 @@ class IntroFirstFragment : Fragment(R.layout.fragment_intro_container) {
                     }
                 }
             }
-        })
+        })*/
     }
 
 
     private fun getData() {
         val url: String = resources.getString(R.string.GET_INTRO_PAGE_1)
-        viewModel.getIntroData(url)
+        vm.getIntroData(url)
     }
 }
