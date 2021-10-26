@@ -5,11 +5,11 @@
 
         <variable
             name="viewModel"
-            type="com.shamweel.trimaplus.ui.splashintro.viewmodel.IntroFirstViewModel" />
+            type="com.trimaplus.ui.splashintro.viewmodel.IntroFirstViewModel" />
 
         <variable
             name="viewState"
-            type="com.shamweel.trimaplus.ui.splashintro.viewstate.IntroViewState" />
+            type="com.trimaplus.ui.splashintro.viewstate.IntroViewState" />
 
     </data>
 
@@ -18,7 +18,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.splashintro.fragment.IntroFirstFragment">
+        tools:context="com.trimaplus.ui.splashintro.fragment.IntroFirstFragment">
 
         <include
             android:id="@+id/layout_intro"

@@ -5,4 +5,9 @@
     <string name="logout">Logout</string>
     <string name="no_internet">Please check your Internet Connection</string>
     <string name="string_retry">Retry</string>
+    <string name="title_activity_home_nav">HomeNavActivity</string>
+    <string name="menu_title_trima_home">Home</string>
+    <string name="menu_title_trima_ideas">Trima Ideas</string>
+    <string name="menu_title_trima_portfolio">Portfolio</string>
+    <string name="menu_title_trima_profile">Profile</string>
 </resources>

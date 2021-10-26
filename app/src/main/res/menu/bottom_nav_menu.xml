@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_menu_trima"
+        android:title="@string/menu_title_trima_home"/>
+
+    <item
+        android:id="@+id/navigation_ideas"
+        android:icon="@drawable/ic_menu_trima_ideas"
+        android:title="@string/menu_title_trima_ideas"/>
+
+    <item
+        android:id="@+id/navigation_portfolio"
+        android:icon="@drawable/ic_menu_trima_portfolio"
+        android:title="@string/menu_title_trima_portfolio"/>
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_menu_trima_profile"
+        android:title="@string/menu_title_trima_profile"/>
+
+</menu>

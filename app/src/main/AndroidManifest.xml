@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shamweel.trimaplus">
+    package="com.trimaplus" >
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MyApplication"
+        android:name="com.trimaplus.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_app_icon_round"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TrimaPlus">
+        android:theme="@style/Theme.TrimaPlus" >
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name="com.trimaplus.ui.home.HomeNavActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home_nav" />
+        <activity
+            android:name="com.trimaplus.ui.home.HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.splashintro.activity.SplashIntroActivity"
+            android:name="com.trimaplus.ui.splashintro.activity.SplashIntroActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name="com.trimaplus.MainActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

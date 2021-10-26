@@ -11,4 +11,6 @@
     <color name="blue">#1565C0</color>
     <color name="dark90">#757575</color>
     <color name="color_dot">#ddd</color>
+    <color name="selected_color">#FFFFCC5A</color>
+    <color name="un_selected_color">#FF797777</color>
 </resources>

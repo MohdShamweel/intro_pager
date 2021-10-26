@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.trimaplus.ui.home.ui.home.HomeFragment"
+        android:label="@string/menu_title_trima_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_ideas"
+        android:name="com.trimaplus.ui.home.ui.ideas.IdeasFragment"
+        android:label="@string/menu_title_trima_ideas"
+        tools:layout="@layout/fragment_ideas" />
+
+    <fragment
+        android:id="@+id/navigation_portfolio"
+        android:name="com.trimaplus.ui.home.ui.portfolio.PortfolioFragment"
+        android:label="@string/menu_title_trima_portfolio"
+        tools:layout="@layout/fragment_portfolio" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.trimaplus.ui.home.ui.profile.ProfileFragment"
+        android:label="@string/menu_title_trima_profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>
