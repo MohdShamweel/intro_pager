@@ -17,14 +17,14 @@ class IntroFirstViewModel @Inject constructor(private val repository : SplashInt
 
     private val _response: MutableLiveData<Resource<IntroResponse>> = MutableLiveData()
     val response: LiveData<Resource<IntroResponse>>
-    get() = _response
-    val viewState  = IntroViewState()
+        get() = _response
+    val viewState = IntroViewState()
 
-    fun getIntroData(url : String) = viewModelScope.launch {
+    fun getIntroData(url: String) = viewModelScope.launch {
         //_response.value = Resource.Loading
         //_response.value = repository.getIntroData(url)
         val rs = repository.getIntroData(url)
-        if(rs is Resource.Success<IntroResponse>) {
+        if (rs is Resource.Success<IntroResponse>) {
             viewState.progressVisibility = View.GONE
             viewState.animUrl = rs.value.data.pic
             viewState.title = rs.value.data.title
@@ -32,6 +32,11 @@ class IntroFirstViewModel @Inject constructor(private val repository : SplashInt
         } else {
 
         }
+    }
+
+    fun getSecondaryData(url: String) = viewModelScope.launch{
+        val rs = repository.getIntroData(url)
+        if(rs is Resource<>)
     }
 
 }
