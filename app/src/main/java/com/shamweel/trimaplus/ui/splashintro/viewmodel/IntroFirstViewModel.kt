@@ -34,9 +34,4 @@ class IntroFirstViewModel @Inject constructor(private val repository : SplashInt
         }
     }
 
-    fun getSecondaryData(url: String) = viewModelScope.launch{
-        val rs = repository.getIntroData(url)
-        if(rs is Resource<>)
-    }
-
 }
